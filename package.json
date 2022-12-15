@@ -1,0 +1,23 @@
+{
+  "name": "expense-manager",
+  "version": "1.0.0",
+  "description": "expense manager with Javascript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CiroMirkin/expenseManager.git"
+  },
+  "keywords": [],
+  "author": "C.Mirkin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CiroMirkin/expenseManager/issues"
+  },
+  "homepage": "https://github.com/CiroMirkin/expenseManager#readme",
+  "dependencies": {
+    "jest": "^29.3.1"
+  }
+}
