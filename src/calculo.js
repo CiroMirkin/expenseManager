@@ -1,4 +1,4 @@
-export default class Calculo {
+class Calculo {
     constructor() {
 
     }
@@ -24,3 +24,5 @@ export default class Calculo {
         }
     }
 }
+
+module.exports = Calculo

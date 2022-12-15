@@ -1,4 +1,4 @@
-import Calculo from './calculo.js'
+const Calculo = require('./calculo')
 
 class FormatObjectsToHTMLElements {
     fortmatExpenses(expenses) {
@@ -9,7 +9,7 @@ class FormatObjectsToHTMLElements {
     }
 }
 
-export default class View {
+class View {
     constructor() {
         this.calculo = new Calculo() 
         this.formatObjectsToHTMLElements = new FormatObjectsToHTMLElements()
@@ -36,3 +36,5 @@ export default class View {
         totalAmountElement.innerText = this.calculo.calculateTotal({ income, expenses }).total
     }
 }
+
+module.exports = View

@@ -1,6 +1,19 @@
 "use strict"
+const View = require('./view')
+const express = require('express')
+const path = require('path')
 
-import View from "./view.js"
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+    res.send('./public/index.html');
+})
+app.use('/public', express.static(path.join(__dirname, 'public')))
+
+app.listen(port, () => {
+  console.log(`App listening on port ${port}`)
+})
 
 class Manager {
     constructor() {
