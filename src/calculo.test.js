@@ -32,12 +32,9 @@ test('Se calcula el total de gastos.', () => {
             day: '13 December 2022',
         },
     ])
-    const result = {
-        account: 'BNA',
-        totalExpenses: 8450
-    }
+    const result = 8450
 
-    expect(expected).toEqual(result);
+    expect(expected).toBe(result);
 });
 
 test('Se calcula el total de ingresos.', () => {
@@ -65,10 +62,43 @@ test('Se calcula el total de ingresos.', () => {
             day: '13 December 2022',
         }
     ])
-    const result = {
-        account: 'BNA',
-        totalIncomes: 8200
-    }
+    const result = 8200
+    
 
-    expect(expected).toEqual(result);
+    expect(expected).toBe(result);
 });
+
+test('Se calcula el total de la cuenta.', () => {
+    const calculo = new Calculo()
+    const expected = calculo.calculateTotal({
+        expenses: [{
+            account: 'BNA',
+            categorie: 'super',
+            comment: 'unos caramelos',
+            amount: 80,
+            day: '',
+        }],
+        income: [
+            {
+                account: 'BNA',
+                categorie: 'super',
+                comment: '',
+                amount: 900,
+                day: '',
+            },
+            {
+                account: 'BNA',
+                categorie: 'super',
+                comment: '',
+                amount: 900,
+                day: '',
+            },
+        ]
+    })
+    const result = {
+        total: 1720,
+        totalExpenses: 80,
+        totalIncome: 1800
+    }
+    expect(expected).toEqual(result)
+})
