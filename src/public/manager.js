@@ -49,5 +49,21 @@ const expensesAndIncomeElementContainer = document.getElementById('expenses-and-
 
 expensesAndIncomeElementContainer.addEventListener('submit', (e) => {
     e.preventDefault()
-    console.log(e)
+    if(e.target.id == 'expenses-form') {
+        const newExpense = getInformationFromInputs('expense')
+    }
+    if(e.target.id == 'income-form') {
+        const newIncome = getInformationFromInputs('income')
+    }
 })
+
+const getInformationFromInputs = (inputsArea) => {
+    const date = new Date(Date.now()).toLocaleDateString()
+    return {
+        amount: document.getElementById(`${inputsArea}-amount-input`).value,
+        account: document.getElementById(`${inputsArea}-account`).selectedOptions[0].label,
+        categorie: document.getElementById(`${inputsArea}-categorie`).selectedOptions[0].label,
+        comment: document.getElementById(`${inputsArea}-comment-input`).value,
+        day: navigator.onLine ? date : `${date} ?`
+    }
+}
