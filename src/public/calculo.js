@@ -25,4 +25,4 @@ class Calculo {
     }
 }
 
-module.exports = Calculo
+export default Calculo

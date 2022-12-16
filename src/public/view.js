@@ -1,4 +1,4 @@
-const Calculo = require('./calculo')
+import Calculo from './calculo.js'
 
 class FormatObjectsToHTMLElements {
     fortmatExpenses(expenses) {
@@ -37,4 +37,4 @@ class View {
     }
 }
 
-module.exports = View
+export default View
