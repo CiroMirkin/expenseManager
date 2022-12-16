@@ -47,7 +47,7 @@ class Manager {
 
 const expensesAndIncomeElementContainer = document.getElementById('expenses-and-income-container')
 
-expensesAndIncomeElementContainer.addEventListener('click', (e) => {
+expensesAndIncomeElementContainer.addEventListener('submit', (e) => {
     e.preventDefault()
     console.log(e)
 })

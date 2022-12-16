@@ -89,22 +89,22 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form class="d-grid gap-2">
+                                <form id="expenses-form" class="d-grid gap-2">
                                     <div class="input-group flex-nowrap">
                                         <span class="input-group-text">$</span>
-                                        <input type="number" class="form-control" placeholder="Monto" aria-label="amound"
+                                        <input type="number" id="expense-amound-input" class="form-control" placeholder="Monto" aria-label="amound"
                                             aria-describedby="addon-wrapping" required>
                                     </div>
-                                    <select class="form-select" aria-label="account" required>
+                                    <select class="form-select" id="expense-account" aria-label="account" required>
                                         <option selected>Seleccione una cuenta</option>
                                         <option value="1">BNA</option>
                                       </select>
-                                    <select class="form-select" aria-label="categorie" required>
+                                    <select class="form-select" id="expense-categorie" aria-label="categorie" required>
                                         <option selected>Seleccione una categoria</option>
                                         <option value="1">Gasto medico</option>
                                         <option value="2">Viaje en avion</option>
                                       </select>
-                                    <input class="form-control" type="text" placeholder="Comentario" aria-label="comment">
+                                    <input id="expense-comment-input" class="form-control" type="text" placeholder="Comentario" aria-label="comment">
                                     <button type="submit" class="btn btn-warning">Agregar</button>
                                 </form>
                             </div>
@@ -145,22 +145,22 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form class="d-grid gap-2">
+                                <form id="income-form" class="d-grid gap-2">
                                     <div class="input-group flex-nowrap">
                                         <span class="input-group-text">$</span>
-                                        <input type="number" class="form-control" placeholder="Monto" aria-label="amound"
+                                        <input type="number" id="income-amound-input" class="form-control" placeholder="Monto" aria-label="amound"
                                             aria-describedby="addon-wrapping" required>
                                     </div>
-                                    <select class="form-select" aria-label="account" required>
+                                    <select class="form-select" id="income-account" aria-label="account" required>
                                         <option selected>Seleccione una cuenta</option>
                                         <option value="1">BNA</option>
                                       </select>
-                                    <select class="form-select" aria-label="categorie" required>
+                                    <select class="form-select" id="income-categorie" aria-label="categorie" required>
                                         <option selected>Seleccione una categoria</option>
                                         <option value="1">Gasto medico</option>
                                         <option value="2">Viaje en avion</option>
                                       </select>
-                                    <input class="form-control" type="text" placeholder="Comentario" aria-label="comment">
+                                    <input class="form-control" id="income-comment-input" type="text" placeholder="Comentario" aria-label="comment">
                                     <button type="submit" class="btn btn-warning">Agregar</button>
                                 </form>
                             </div>
