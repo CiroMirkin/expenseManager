@@ -1,46 +1,43 @@
 "use strict"
+import Manager from "./public/manager.js"
 
-const path = require('path')
-const {createReadStream} = require('fs')
-const {createServer} = require('http')
+const manager = new Manager()
 
-// configuramos con una variable de entorno el puerto
-const {PORT = 3000} = process.env
-
-const HTML_CONTENT_TYPE = 'text/html'
-const CSS_CONTENT_TYPE = 'text/css'
-const JS_CONTENT_TYPE = 'text/javascript'
-
-const PUBLIC_FOLDER = path.join(__dirname, 'public')
-// creamos un requestListener para pasarle a nuestro servidor
-const requestListener = (req, res) => {
-  const {url} = req
-  let statusCode = 200
-  let contentType = HTML_CONTENT_TYPE
-  let stream
-
-  // si estamos pidiendo la ruta principal, devolvemos el contenido del index.html
-  if (url === '/') {
-    stream = createReadStream(`${PUBLIC_FOLDER}/index.html`)
-  } else if (url.match("\.css$")) { // para los archivos CSS
-    contentType = CSS_CONTENT_TYPE
-    stream = createReadStream(`${PUBLIC_FOLDER}${url}`)
-  } else if (url.match("\.js$")) { // para los archivos JavaScript
-    contentType = JS_CONTENT_TYPE
-    stream = createReadStream(`${PUBLIC_FOLDER}${url}`)
-  } else { // si llegamos aquí, es un 404
-    statusCode = 404
+let welcomeBootstrapModal = new bootstrap.Modal(document.getElementById('welcomeModal'), { keyboard: false })
+const welcomModalElement = document.getElementById('welcomeModal')
+welcomeBootstrapModal.show()
+welcomModalElement.addEventListener('submit', (e) => {
+  e.preventDefault()
+  const principalAccountName = document.getElementById('princialAccountName').value
+  if (!!principalAccountName) {
+    manager.logAccount(principalAccountName)
+    welcomeBootstrapModal.hide()
   }
+})
 
-  // escribimos las cabeceras de la respuesta dependiendo de la request
-  res.writeHead(statusCode, {'Content-Type': contentType})
-  // si tenemos un stream, lo enviamos a la respuesta
-  if (stream) stream.pipe(res)
-  // si no, devolvemos un string diciendo que no hemos encontrado nada
-  else return res.end('Not found')
+const expensesAndIncomeElementContainer = document.getElementById('expenses-and-income-container')
+
+expensesAndIncomeElementContainer.addEventListener('submit', (e) => {
+  e.preventDefault()
+  if (e.target.id == 'expenses-form') {
+    const newExpense = getInformationFromInputs('expense')
+    manager.addNewExpense(newExpense)
+    manager.updateView(newExpense.account)
+  }
+  if (e.target.id == 'income-form') {
+    const newIncome = getInformationFromInputs('income')
+    manager.addNewIncome(newIncome)
+    manager.updateView(newIncome.account)
+  }
+})
+
+const getInformationFromInputs = (inputsArea) => {
+  const date = new Date(Date.now()).toLocaleDateString()
+  return {
+    amount: Number(document.getElementById(`${inputsArea}-amount-input`).value),
+    account: document.getElementById(`${inputsArea}-account`).selectedOptions[0].label,
+    categorie: document.getElementById(`${inputsArea}-categorie`).selectedOptions[0].label,
+    comment: document.getElementById(`${inputsArea}-comment-input`).value,
+    day: navigator.onLine ? date : `${date} ?`
+  }
 }
-
-// creamos un servidor con el requestListener
-const server = createServer(requestListener)
-server.listen(PORT)
-console.log('Server on port', PORT)

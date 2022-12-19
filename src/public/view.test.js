@@ -1,4 +1,4 @@
-const Format = require('./index')
+const Format = require('./view')
 
 test('Se formatean los objetos con gastos a elementos HTML que contienen solo la informacion necesaria.', () => {
     const format = new Format(); 
