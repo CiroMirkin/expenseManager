@@ -1,5 +1,5 @@
 "use strict"
-import Manager from "./public/manager.js"
+import Manager from "./js/manager.js"
 
 const manager = new Manager()
 
