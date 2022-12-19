@@ -2,16 +2,18 @@ import View from "./view.js"
 
 class Manager {
     constructor() {
-        this.accounts = {
-            BNA: {
-                expenses: [],
-                income: []
-            }
-        
-        }
-        
+        this.accounts = new Object()
+
         this.view = new View()
-        this.updateView(Object.keys(this.accounts).at(0))
+        if (!!Object.keys(this.accounts).length) {
+            this.updateView(Object.keys(this.accounts).at(0))
+        }
+    }
+    logAccount(accountName) {
+        this.accounts[accountName] = {
+            expenses: [],
+            income: []
+        }
     }
     updateView(account) {
         const { expenses, income } = this.accounts[account]
@@ -21,7 +23,7 @@ class Manager {
         this.view.showTotalIncome(income)
         this.view.showTotalAmount({ expenses, income })
     }
-    addNewIncome(income){
+    addNewIncome(income) {
         this.accounts[income.account].income.push(income)
     }
     addNewExpense(expense) {
@@ -31,22 +33,34 @@ class Manager {
 
 const manager = new Manager()
 
+let welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'), { keyboard: false })
+welcomeModal.show()
+const welcomModalElement = document.getElementById('welcomeModal')
+welcomModalElement.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const principalAccountName = document.getElementById('princialAccountName').value
+    if (!!principalAccountName) {
+        manager.logAccount(principalAccountName)
+        welcomeModal.hide()
+    }
+})
+
 const expensesAndIncomeElementContainer = document.getElementById('expenses-and-income-container')
 
 expensesAndIncomeElementContainer.addEventListener('submit', (e) => {
     e.preventDefault()
-    if(e.target.id == 'expenses-form') {
+    if (e.target.id == 'expenses-form') {
         const newExpense = getInformationFromInputs('expense')
         manager.addNewExpense(newExpense)
         manager.updateView(newExpense.account)
     }
-    if(e.target.id == 'income-form') {
+    if (e.target.id == 'income-form') {
         const newIncome = getInformationFromInputs('income')
         manager.addNewIncome(newIncome)
         manager.updateView(newIncome.account)
     }
 })
-  
+
 const getInformationFromInputs = (inputsArea) => {
     const date = new Date(Date.now()).toLocaleDateString()
     return {
