@@ -1,10 +1,13 @@
 import View from "./view.js"
+import ViewAccounts from "./viewAccounts.js"
 
 class Manager {
     constructor() {
         this.accounts = new Object()
 
         this.view = new View()
+        this.viewAccounts = new ViewAccounts()
+
         if (!!Object.keys(this.accounts).length) {
             this.updateView(Object.keys(this.accounts).at(0))
         }
@@ -14,6 +17,7 @@ class Manager {
             expenses: [],
             income: []
         }
+        this.viewAccounts.updateViewAccounts(Object.keys(this.accounts))
     }
     updateView(account) {
         const { expenses, income } = this.accounts[account]
