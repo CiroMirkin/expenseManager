@@ -11,7 +11,7 @@ test('Se formatean los objetos con gastos a elementos HTML que contienen solo la
             day: '13 December 2022',
         }
     ])
-    const result = ['<li class="list-group-item d-flex justify-content-between align-items-center"><div class="text-truncate">algo para tomar</div> <span>$300</span></li>']
+    const result = ['<li class="list-group-item d-flex justify-content-between align-items-center"><div class="text-truncate"><i class="bi bi-super"></i> algo para tomar</div> <span>$300</span></li>']
 
     expect(expected).toEqual(result);
 });
@@ -26,7 +26,7 @@ test('Se formatean los objetos con ingresos a elementos HTML que contienen solo 
             day: '13 December 2022',
         }
     ])
-    const result = ['<li class="list-group-item d-flex justify-content-between align-items-center"><div class="text-truncate">algo para tomar</div> <span>$300</span></li>']
+    const result = ['<li class="list-group-item d-flex justify-content-between align-items-center"><div class="text-truncate"><i class="bi bi-super"></i> algo para tomar</div> <span>$300</span></li>']
 
     expect(expected).toEqual(result);
 });

@@ -1,5 +1,6 @@
 import View from "./view.js"
 import ViewAccounts from "./viewAccounts.js"
+import Categories from "./categories.js"
 
 class Manager {
     constructor() {
@@ -7,6 +8,8 @@ class Manager {
 
         this.view = new View()
         this.viewAccounts = new ViewAccounts()
+        this.categories = new Categories()
+        this.categories.showCategoriesInForm()
 
         if (!!Object.keys(this.accounts).length) {
             this.updateView(Object.keys(this.accounts).at(0))

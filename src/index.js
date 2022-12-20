@@ -35,8 +35,8 @@ const getInformationFromInputs = (inputsArea) => {
   const date = new Date(Date.now()).toLocaleDateString()
   return {
     amount: Number(document.getElementById(`${inputsArea}-amount-input`).value),
-    account: document.getElementById(`${inputsArea}-account`).selectedOptions[0].label,
-    categorie: document.getElementById(`${inputsArea}-categorie`).selectedOptions[0].label,
+    account: document.getElementById(`${inputsArea}-account-select`).selectedOptions[0].label,
+    categorie: document.getElementById(`${inputsArea}-categorie-select`).selectedOptions[0].label,
     comment: document.getElementById(`${inputsArea}-comment-input`).value,
     day: navigator.onLine ? date : `${date} ?`
   }

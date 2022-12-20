@@ -1,11 +1,15 @@
 import Calculo from './calculo.js'
+import Categories from './categories.js'
 
 class FormatObjectsToHTMLElements {
+    constructor(){
+        this.categories = new Categories
+    }
     fortmatExpenses(expenses) {
-        return expenses.map(expense => `<li class="list-group-item d-flex justify-content-between align-items-center"><div class="text-truncate">${expense.comment}</div> <span>$${expense.amount}</span></li>`).join('')
+        return expenses.map(expense => `<li class="list-group-item d-flex justify-content-between align-items-center"><div class="text-truncate">${this.categories.getHTMLIconCategorie(expense.categorie)} ${expense.comment}</div> <span>$${expense.amount}</span></li>`).join('')
     }
     formatIncome(incomes) {
-        return incomes.map(income => `<li class="list-group-item d-flex justify-content-between align-items-center"><div class="text-truncate">${income.comment}</div> <span>$${income.amount}</span></li>`).join('')
+        return incomes.map(income => `<li class="list-group-item d-flex justify-content-between align-items-center"><div class="text-truncate">${this.categories.getHTMLIconCategorie(income.categorie)} ${income.comment}</div> <span>$${income.amount}</span></li>`).join('')
     }
 }
 
