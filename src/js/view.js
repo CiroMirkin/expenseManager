@@ -29,15 +29,15 @@ class View {
     }
     showTotalExpenses(expenses) {
         const totalExpensesElement = document.getElementById('total-expenses')
-        totalExpensesElement.innerText = this.calculo.calculateTotalExpenses(expenses)
+        totalExpensesElement.innerText = `$${this.calculo.calculateTotalExpenses(expenses)}`
     }
     showTotalIncome(income) {
         const totalIncomeElement = document.getElementById('total-income')
-        totalIncomeElement.innerText = this.calculo.calculateTotalIncomes(income)
+        totalIncomeElement.innerText = `$${this.calculo.calculateTotalIncomes(income)}`
     }
     showTotalAmount({ income, expenses }){
         const totalAmountElement = document.getElementById('total')
-        totalAmountElement.innerText = this.calculo.calculateTotal({ income, expenses }).total
+        totalAmountElement.innerText = `$${this.calculo.calculateTotal({ income, expenses }).total}`
     }
 }
 
