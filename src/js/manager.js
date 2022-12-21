@@ -4,62 +4,11 @@ import ViewCategories from "./viewCategories.js"
 
 class Manager {
     constructor() {
-        this.categories = {
-            income: [
-                {
-                    name: 'Regalo',
-                    icon: 'gift'
-                },
-                {
-                    name: 'Salario',
-                    icon: 'cash-coin'
-                },
-                {
-                    name: 'Ahorro',
-                    icon: 'piggy-bank'
-                },
-                {
-                    name: 'Otros',
-                    icon: 'question-lg'
-                },
-            ],
-            expenses: [
-                {
-                    name: 'Gasto medico',
-                    icon: 'capsule'
-                },
-                {
-                    name: 'Regalo',
-                    icon: 'gift'
-                },
-                {
-                    name: 'Cafe',
-                    icon: 'cup-hot'
-                },
-                {
-                    name: 'Servicio online',
-                    icon: 'globe'
-                },
-                {
-                    name: 'Supermercado',
-                    icon: 'cart'
-                },
-                {
-                    name: 'Videojuegos',
-                    icon: 'controller'
-                },
-                {
-                    name: 'Otros',
-                    icon: 'question-lg'
-                },
-            ]
-        }
-
         this.accounts = new Object()
         this.view = new View()
         this.viewAccounts = new ViewAccounts()
-        this.categories = new ViewCategories(this.categories.income, this.categories.expenses)
-        this.categories.showCategoriesInForm()
+        this.viewCategories = new ViewCategories()
+        this.viewCategories.showCategoriesInForm()
 
         if (!!Object.keys(this.accounts).length) {
             this.updateView(Object.keys(this.accounts).at(0))

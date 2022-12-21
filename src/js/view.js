@@ -1,15 +1,15 @@
 import Calculo from './calculo.js'
-import ViewCategories from './categories.js'
+import ViewCategories from './viewCategories.js'
 
 class FormatObjectsToHTMLElements {
     constructor(){
-        this.categories = new ViewCategories
+        this.viewCategories = new ViewCategories()
     }
     fortmatExpenses(expenses) {
-        return expenses.map(expense => `<li class="list-group-item d-flex justify-content-between align-items-center"><div class="text-truncate">${this.categories.getHTMLIconCategorie(expense.categorie)} ${expense.comment}</div> <span>$${expense.amount}</span></li>`).join('')
+        return expenses.map(expense => `<li class="list-group-item d-flex justify-content-between align-items-center"><div class="text-truncate">${this.viewCategories.getHTMLIconCategorie(expense.categorie)} ${expense.categorie}</div> <span>$${expense.amount}</span></li>`).join('')
     }
     formatIncome(incomes) {
-        return incomes.map(income => `<li class="list-group-item d-flex justify-content-between align-items-center"><div class="text-truncate">${this.categories.getHTMLIconCategorie(income.categorie)} ${income.comment}</div> <span>$${income.amount}</span></li>`).join('')
+        return incomes.map(income => `<li class="list-group-item d-flex justify-content-between align-items-center"><div class="text-truncate">${this.viewCategories.getHTMLIconCategorie(income.categorie)} ${income.categorie}</div> <span>$${income.amount}</span></li>`).join('')
     }
 }
 
