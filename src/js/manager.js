@@ -1,6 +1,6 @@
 import View from "./view.js"
 import ViewAccounts from "./viewAccounts.js"
-import Categories from "./categories.js"
+import ViewCategories from "./categories.js"
 
 class Manager {
     constructor() {
@@ -58,7 +58,7 @@ class Manager {
         this.accounts = new Object()
         this.view = new View()
         this.viewAccounts = new ViewAccounts()
-        this.categories = new Categories(this.categories.income, this.categories.expenses)
+        this.categories = new ViewCategories(this.categories.income, this.categories.expenses)
         this.categories.showCategoriesInForm()
 
         if (!!Object.keys(this.accounts).length) {
