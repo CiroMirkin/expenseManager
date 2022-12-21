@@ -1,54 +1,8 @@
 
 class Categories {
-    constructor() {
-        this.incomeCategories = [
-            {
-                name: 'Regalo',
-                icon: 'gift'
-            },
-            {
-                name: 'Salario',
-                icon: 'cash-coin'
-            },
-            {
-                name: 'Ahorro',
-                icon: 'piggy-bank'
-            },
-            {
-                name: 'Otros',
-                icon: 'question-lg'
-            },
-        ]
-        this.expensesCategories = [
-            {
-                name: 'Gasto medico',
-                icon: 'capsule'
-            },
-            {
-                name: 'Regalo',
-                icon: 'gift'
-            },
-            {
-                name: 'Cafe',
-                icon: 'cup-hot'
-            },
-            {
-                name: 'Servicio online',
-                icon: 'globe'
-            },
-            {
-                name: 'Supermercado',
-                icon: 'cart'
-            },
-            {
-                name: 'Videojuegos',
-                icon: 'controller'
-            },
-            {
-                name: 'Otros',
-                icon: 'question-lg'
-            },
-        ]
+    constructor(incomeCategories, expensesCategories) {
+        this.incomeCategories = incomeCategories
+        this.expensesCategories = expensesCategories
     }
     getHTMLIconCategorie(categorie) {
         const icons = [...this.expensesCategories, ...this.incomeCategories]

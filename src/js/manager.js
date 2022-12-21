@@ -4,11 +4,61 @@ import Categories from "./categories.js"
 
 class Manager {
     constructor() {
-        this.accounts = new Object()
+        this.categories = {
+            income: [
+                {
+                    name: 'Regalo',
+                    icon: 'gift'
+                },
+                {
+                    name: 'Salario',
+                    icon: 'cash-coin'
+                },
+                {
+                    name: 'Ahorro',
+                    icon: 'piggy-bank'
+                },
+                {
+                    name: 'Otros',
+                    icon: 'question-lg'
+                },
+            ],
+            expenses: [
+                {
+                    name: 'Gasto medico',
+                    icon: 'capsule'
+                },
+                {
+                    name: 'Regalo',
+                    icon: 'gift'
+                },
+                {
+                    name: 'Cafe',
+                    icon: 'cup-hot'
+                },
+                {
+                    name: 'Servicio online',
+                    icon: 'globe'
+                },
+                {
+                    name: 'Supermercado',
+                    icon: 'cart'
+                },
+                {
+                    name: 'Videojuegos',
+                    icon: 'controller'
+                },
+                {
+                    name: 'Otros',
+                    icon: 'question-lg'
+                },
+            ]
+        }
 
+        this.accounts = new Object()
         this.view = new View()
         this.viewAccounts = new ViewAccounts()
-        this.categories = new Categories()
+        this.categories = new Categories(this.categories.income, this.categories.expenses)
         this.categories.showCategoriesInForm()
 
         if (!!Object.keys(this.accounts).length) {
