@@ -1,6 +1,6 @@
 import View from "./view.js"
 import ViewAccounts from "./viewAccounts.js"
-import ViewCategories from "./categories.js"
+import ViewCategories from "./viewCategories.js"
 
 class Manager {
     constructor() {
