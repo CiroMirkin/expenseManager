@@ -1,9 +1,9 @@
 import Calculo from './calculo.js'
-import ViewCategories from './viewCategories.js'
+import Categories from './categories.js'
 
 class FormatObjectsToHTMLElements {
     constructor(){
-        this.viewCategories = new ViewCategories()
+        this.viewCategories = new Categories()
     }
     fortmatExpenses(expenses) {
         return expenses.map(expense => `<li class="list-group-item d-flex justify-content-between align-items-center"><div class="text-truncate">${this.viewCategories.getHTMLIconCategorie(expense.categorie)} ${expense.categorie}</div> <span>$${expense.amount}</span></li>`).join('')

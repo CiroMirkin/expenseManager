@@ -1,13 +1,13 @@
 import View from "./view.js"
 import ViewAccounts from "./viewAccounts.js"
-import ViewCategories from "./viewCategories.js"
+import Categories from "./categories.js"
 
 class Manager {
     constructor() {
         this.accounts = new Object()
         this.view = new View()
         this.viewAccounts = new ViewAccounts()
-        this.viewCategories = new ViewCategories()
+        this.viewCategories = new Categories()
         this.viewCategories.showCategoriesInForm()
 
         if (!!Object.keys(this.accounts).length) {

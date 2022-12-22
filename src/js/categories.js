@@ -1,5 +1,5 @@
 
-class ViewCategories {
+class Categories {
     constructor() {
         this.incomeCategories = [
             {
@@ -63,4 +63,4 @@ class ViewCategories {
     }
 }
 
-export default ViewCategories
+export default Categories
